@@ -125,6 +125,29 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.filter {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
+	gap: 10px;
+}
+
+.btn {
+	border: 1px solid #1D6154;
+	border-radius: 50px;
+	padding: 5px 9px;
+	background-color: transparent;
+	font-family: "Syne", Arial, sans-serif;
+	font-size: 16px;
+	color: #1D6154;
+}
+
+.btn:hover, .btn__null {
+	background-color: #1D6154;
+	color: white;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -135,12 +158,17 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
 }
+
+figcaption {
+	margin-top: 10px;
+}
+
 #contact {
 	width: 50%;
 margin: auto;
 }
+
 #contact > * {
 	text-align: center;
 
