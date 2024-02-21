@@ -48,10 +48,13 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
-	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color: #FFFFF7;
+}
+.index {
+	max-width: 1140px;
+	margin:auto;
 }
 header {
 	display: flex;
@@ -75,7 +78,6 @@ h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
 }
 
 h2{
@@ -95,6 +97,10 @@ nav li {
 	font-size: 1.2em;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
 li:hover {
 	color: #B1663C;
 }
@@ -164,32 +170,32 @@ figcaption {
 	margin-top: 10px;
 }
 
-#contact {
+#contact, .login__page {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 
 #contact > * {
 	text-align: center;
 
 }
-#contact h2{
+h2{
 	margin-bottom: 20px;
 }
-#contact form {
+form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+label {
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -208,9 +214,32 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
+}
+
+footer {
+	background-color: white;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+}
+
+.footer__login {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;	
+}
+
+footer nav {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	max-width: 1140px;
 }
 
