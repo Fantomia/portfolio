@@ -10,7 +10,7 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script type="module" src="./assets/script.js"></script>
-	<script type="module" src="./assets/login.js"></script>
+	<script src="https://kit.fontawesome.com/074eb2b6d9.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -41,13 +41,28 @@
 				</article>
 			</section>
 			<section id="portfolio">
-				<h2>Mes Projets</h2>
+				<h2 id="titleFilter">Mes Projets</h2>
 				<div class="filter">
 					<button class="btn all btn__null" data-category-id="0">Tous</button>
 					<button class="btn objets" data-category-id="1">Objets</button>
 					<button class="btn appart" data-category-id="2">Appartements</button>
 					<button class="btn hotels" data-category-id="3">Hôtels et restaurants</button>
 				</div>
+
+				<aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display: none;">
+					<div class="modal-wrapper js-modal-stop">
+						<button class="js-modal-close">
+							<i class="fa-solid fa-xmark fa-lg"></i>
+						</button>
+						<h3 id="titlemodal">Galerie Photo</h3>
+						<div class="galleryModal">
+
+
+						</div>
+						<hr>
+						<button class="btn__modal">Ajouter une photo</button>
+					</div>
+				</aside>
 
 				<div class="gallery">
 
