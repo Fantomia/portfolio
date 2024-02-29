@@ -189,11 +189,13 @@ form {
 	flex-direction: column;
 }
 
-input {
+input, select {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	padding: 0 20px;
+	font-family: "Work sans";
 }
 label {
 	margin: 2em 0 1em 0;
@@ -280,7 +282,7 @@ footer nav {
 	border-radius: 30px;
 }
 
-.galleryModal {
+.contentModal {
 	width: 100%;
 	display: grid;
 	justify-content: center;
@@ -290,19 +292,19 @@ footer nav {
 	margin-bottom: 20px;
 }
 
-.galleryModal img {
+.contentModal img {
 	width: 100%;
 }
 
-.galleryModal figure {
+.contentModal figure {
 	position: relative;
 }
 
-#titlemodal {
+#titleModal {
 	text-align: center;
 	font: 'Work sans';
 	font-size: 26px;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 }
 
 .js-modal-close {
@@ -310,7 +312,12 @@ footer nav {
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
-	margin-bottom: 20px;
+}
+
+.js-modal-back {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
 }
 
 .fa-trash-can {
@@ -319,7 +326,6 @@ footer nav {
 	position: absolute;
 	top: 0;
 	right: 0;
-
 	color: white;
 	background-color: black;
 	border-radius: 5px;
@@ -338,4 +344,79 @@ hr {
 button {
 	background-color: transparent;
 	border: none;
+}
+
+.addWork {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 0;
+	gap: 0;
+}
+
+#photoInput {
+	display: none;
+	z-index: 1;
+}
+
+.custom-file-upload {
+	border-radius: 30px;
+	background-color: #CBD6DC;
+	padding: 10px 20px;
+	color: #306685;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: 'Work sans';
+	margin: 0;
+}
+
+.inputBtn {
+	margin: 0;
+	background-color: #CBD6DC;
+	border-radius: 30px;
+}
+
+.inputPhoto {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #E8F1F6;
+	margin: 0;
+	width: 100%;
+}
+
+.fa-image {
+	font-size: 90px;
+	color: #B9C5CC;
+	line-height: inherit;
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+
+.inputModalContent {
+	font-family: 'Work sans';
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.modal-header {
+	display: flex;
+}
+
+.btn__lock {
+	background-color: #A7A7A7;
+	color: #FFFFFF;
+}
+
+#previewImage {
+	width: 30%;
+}
+
+.buttonJs {
+	display: flex;
+	align-items: center;
+}
+
+.fa-xmark, .fa-arrow-left  {
+	font-size: 1.4rem;
 }
