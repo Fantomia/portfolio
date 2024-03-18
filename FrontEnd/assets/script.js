@@ -62,6 +62,7 @@ const openModal = async function (event) {
       modal
         .querySelector(".js-modal-stop")
         .addEventListener("click", stopPropagation);
+
     } else {
       console.log(
         `Erreur de requête pour les travaux: ${worksResponse.status}`
@@ -81,6 +82,7 @@ const closeModal = function (event) {
   modal.style.display = "none";
   modal.setAttribute("aria-hidden", "true");
   modal.removeAttribute("aria-modal");
+  modal.removeEventListener("click", stopPropagation);
   modal.removeEventListener("click", closeModal);
   modal = null;
 };
@@ -124,8 +126,13 @@ function generateGalleryModal(works, event) {
     icon.addEventListener("click", (e) => deleteWork(e, storedToken, works));
   });
 
-  // Ajouter un eventListener pour changer la modal
-  btnModal.addEventListener("click", () => addPhotoModal(works, event));
+  btnModal.removeEventListener("click",addPhotoModal);
+  btnModal.addEventListener("click",addPhotoModal);
+
+}
+
+function onAddPhotoClick (works, event) {
+  addPhotoModal(works, event);
 }
 
 // Fonction pour mettre à jour la galerie dans la modale
@@ -210,22 +217,24 @@ async function addPhotoModal(works, event) {
     }
   }
 
-  // Ajouter un event listener pour envoyer les données
-  btnModal.addEventListener("click", (event) => {
+  function onSubmitClick(event) {
     event.preventDefault();
     if (btnModal.classList.contains("btn__rdy")) {
       submitFormData(titleInput, categoryInput, photoInput);
     } else {
-      alert("Veuillez remplir tous les champs.");
+      btnModal.removeEventListener("click", onSubmitClick);
     }
-  });
+  };
+
+  btnModal.addEventListener("click", onSubmitClick);
 
   // Permettre le retour sur la modale précédente
   const backToGalleryButton = document.querySelector(".js-modal-back");
   backToGalleryButton.style.display = null;
-  backToGalleryButton.addEventListener("click", () =>
+  backToGalleryButton.addEventListener("click", () => {
+    btnModal.removeEventListener("click", onSubmitClick);
     updateGalleryModal(works, event)
-  );
+  });
 }
 
 // Fonction pour envoyer les données de la photo ajoutée 

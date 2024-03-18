@@ -279,17 +279,20 @@ footer nav {
 	max-height: calc(100vh - 100px);
 	padding: 40px;
 	background-color: #FFFFF7;
-	border-radius: 30px;
+	border-radius: 10px;
 }
 
 .contentModal {
-	width: 100%;
 	display: grid;
 	justify-content: center;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 10px;
 	grid-row-gap: 20px;
-	margin-bottom: 20px;
+	padding: 50px;
+}
+
+.contentUnderModal {
+	padding: 0 50px;
 }
 
 .contentModal img {
@@ -304,7 +307,6 @@ footer nav {
 	text-align: center;
 	font: 'Work sans';
 	font-size: 26px;
-	margin-bottom: 30px;
 }
 
 .js-modal-close {
@@ -349,7 +351,6 @@ button {
 .addWork {
 	display: flex;
 	flex-direction: column;
-	padding: 20px 0;
 	gap: 0;
 }
 
