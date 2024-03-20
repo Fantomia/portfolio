@@ -343,7 +343,7 @@ async function deleteWork(event, token) {
   }
 }
 
-// Fonction pour générer la galerie d'œuvres à partir d'un tableau d'objets "works"
+// Fonction pour générer la galerie à partir d'un tableau d'objets "works"
 function generateGallery(works) {
   const gallery = document.querySelector(".gallery");
   gallery.innerHTML = ""; // Efface le contenu de la galerie
@@ -359,7 +359,7 @@ function generateGallery(works) {
   }
 }
 
-// Fonction pour générer les œuvres en fonction de la réponse de l'API
+// Fonction pour générer les travaux en fonction de la réponse de l'API
 function generateWorks(worksResponse) {
   const allBtn = document.querySelector(".btn__null");
   const btns = document.querySelectorAll(".btn");
