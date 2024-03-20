@@ -143,8 +143,6 @@ async function updateGalleryModal(target) {
       const works = await worksResponse.json();
       generateGallery(works);
       generateGalleryModal(works, target);
-    } else {
-      console.log(`Erreur de requête pour les travaux: ${worksResponse.status}`);
     }
   } catch (error) {
     console.error("Erreur lors de la récupération des travaux:", error.message);
@@ -263,21 +261,16 @@ async function submitFormData(titleInput, categoryInput, photoInput) {
 
       if (response.ok) {
         const responseData = await response.json();
-        console.log("Data:", responseData);
         alert("Données envoyées avec succès !");
         checkInputs();
       } else {
-        console.log(`Erreur lors de l'envoi des données: ${response.status}`);
         alert("Erreur lors de l'envoi des données. Veuillez réessayer.");
       }
     } catch (error) {
-      console.error("Erreur lors de l'envoi des données:", error.message);
       alert(
         "Une erreur s'est produite lors de l'envoi des données. Veuillez réessayer."
       );
     }
-  } else {
-    console.log("ERROR");
   }
 }
 
@@ -295,7 +288,7 @@ function checkInputs() {
     btnModal.classList.remove("btn__lock"); // Déverouille le bouton 
     btnModal.classList.add("btn__rdy");
   } else {
-    btnModal.classList.add("btn__lock");
+    btnModal.classList.add("btn__lock"); // Garde le bouton vérouillé
     btnModal.classList.remove("btn__rdy");
   }
 }
@@ -325,7 +318,7 @@ async function displayCategories() {
 }
 
 // Fonction pour supprimer les travaux
-async function deleteWork(event, token, works) {
+async function deleteWork(event, token) {
   event.preventDefault();
   const workId = event.target.dataset.workId;
 
@@ -341,11 +334,6 @@ async function deleteWork(event, token, works) {
     if (response.ok) {
       // Mettez à jour la galerie après la suppression
       updateGalleryModal(modal);
-      alert("Travail supprimé");
-    } else {
-      console.log(
-        `Erreur lors de la suppression du travail ${workId}: ${response.status}`
-      );
     }
   } catch (error) {
     console.error(
@@ -368,7 +356,6 @@ function generateGallery(works) {
             </figure>
         `;
     gallery.insertAdjacentHTML("beforeend", html);
-    // Intégrer le code HTML en fonction de son indice
   }
 }
 
@@ -414,12 +401,7 @@ async function getWorks() {
     const worksResponse = await fetch("http://localhost:5678/api/works");
     if (worksResponse.ok) {
       const works = await worksResponse.json();
-      console.log("Works:", works);
       generateWorks(works);
-    } else {
-      console.log(
-        `Erreur de requête pour les travaux: ${worksResponse.status}`
-      );
     }
   } catch (error) {
     console.error("Erreur lors de la récupération des travaux:", error.message);
@@ -435,12 +417,7 @@ async function getCategories() {
 
     if (categoriesResponse.ok) {
       const categories = await categoriesResponse.json();
-      console.log("Catégories:", categories);
       return categories;
-    } else {
-      console.log(
-        `Erreur de requête pour les catégories: ${categoriesResponse.status}`
-      );
     }
   } catch (error) {
     console.error(

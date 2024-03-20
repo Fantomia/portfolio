@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 const loginForm = document.querySelector(".login form");
 
 loginForm.addEventListener("submit", async function (event) {
-  event.preventDefault(); // Désactivation du comportement par défaut du navigateur
+  event.preventDefault();
 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -43,15 +43,11 @@ loginForm.addEventListener("submit", async function (event) {
       body: JSON.stringify(loginData),
     });
 
-    const responseData = await response.json();
-    console.log(responseData);
-
     // Vérifiez si la connexion a réussi ou échoué
     if (response.ok) {
       localStorage.setItem("token", responseData.token);
       window.location.href = "index.html";
     } else {
-      console.log("Échec de la connexion:", responseData);
       alert("Email ou Mot de passe incorrect");
     }
   } catch (error) {
