@@ -205,7 +205,7 @@ label {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"], .btn__modal{
+input[type="submit"], .btn__modal, .btn__submit{
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -274,9 +274,7 @@ footer nav {
 
 .modal-wrapper {
 	width: 600px;
-	height: 700px;
 	max-width: 1140px;
-	max-height: calc(100vh - 100px);
 	padding: 40px;
 	background-color: #FFFFF7;
 	border-radius: 10px;
@@ -333,7 +331,7 @@ footer nav {
 	border-radius: 5px;
 }
 
-.btn__modal {
+.btn__modal, .btn__submit {
 	display: flex;
 	justify-content: center;
 	padding: 10px;
@@ -420,4 +418,19 @@ button {
 
 .fa-xmark, .fa-arrow-left  {
 	font-size: 1.4rem;
+}
+
+.headerMod {
+	background-color: black;
+	color: white;
+	padding: 10px 0;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.headerLogIn {
+	margin: 80px 0;
 }

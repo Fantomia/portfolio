@@ -2,18 +2,17 @@ const loginIndex = document.querySelector(".loginIndex");
 
 document.addEventListener("DOMContentLoaded", function (event) {
   // Vérifie si le token est déjà présent dans le localStorage
-  const storedToken = localStorage.getItem("token");
+  const storedToken = sessionStorage.getItem("token");
   const loginLogoutLink = document.getElementById("loginLogout");
 
   if (storedToken) {
     // Si le token est présent, change le texte du lien à "logout"
     loginLogoutLink.textContent = "logout";
-    console.log(token);
 
     // Ajoute un gestionnaire d'événements pour gérer le "logout"
     loginLogoutLink.addEventListener("click", function () {
       // Supprime le token du localStorage
-      localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
       loginLogoutLink.textContent = "login";
       alert("Vous êtes maintenant déconnecté");
     });
@@ -44,14 +43,12 @@ loginForm.addEventListener("submit", async function (event) {
     });
 
     const responseData = await response.json();
-    console.log(responseData);
 
     // Vérifiez si la connexion a réussi ou échoué
     if (response.ok) {
-      localStorage.setItem("token", responseData.token);
+      sessionStorage.setItem("token", responseData.token);
       window.location.href = "index.html";
     } else {
-      console.log("Échec de la connexion:", responseData);
       alert("Email ou Mot de passe incorrect");
     }
   } catch (error) {
